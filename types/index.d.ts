@@ -7,3 +7,11 @@ export type SiteConfig = {
     github: string
   }
 }
+
+export interface Album {
+  name: string
+  artist: string
+  cover: string
+}
+
+export type Playlist = typeof playlists[number]
