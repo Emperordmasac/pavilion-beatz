@@ -22,13 +22,15 @@ export const metadata: Metadata = {
 export default function IndexPage() {
   return (
     <>
-      <div className="hidden md:block">
+      <div className="md:block relative">
         <Menu />
-        <div className="border-t">
+        <div className="border-t overflow-y-scroll">
           <div className="bg-background">
             <div className="grid lg:grid-cols-5">
+              {/* sidebar */}
               <Sidebar playlists={playlists} className="hidden lg:block" />
-              <div className="col-span-3 lg:col-span-4 lg:border-l">
+              {/* music dashboard */}
+              <div className="col-span-3 lg:col-span-4 lg:border-l mb-20">
                 <div className="h-full px-4 py-6 lg:px-8">
                   <Tabs defaultValue="music" className="h-full space-y-6">
                     <div className="space-between flex items-center">
@@ -80,6 +82,77 @@ export default function IndexPage() {
                           <ScrollBar orientation="horizontal" />
                         </ScrollArea>
                       </div>
+                      <div className="mt-6 space-y-1">
+                        <h2 className="text-2xl font-semibold tracking-tight">
+                          Made for You
+                        </h2>
+                        <p className="text-sm text-muted-foreground">
+                          Your personal playlists. Updated daily.
+                        </p>
+                      </div>
+                      <Separator className="my-4" />
+                      <div className="relative">
+                        <ScrollArea>
+                          <div className="flex space-x-4 pb-4">
+                            {madeForYouAlbums.map((album) => (
+                              <AlbumArtwork
+                                key={album.name}
+                                album={album}
+                                className="w-[150px]"
+                                aspectRatio="square"
+                                width={150}
+                                height={150}
+                              />
+                            ))}
+                          </div>
+                          <ScrollBar orientation="horizontal" />
+                        </ScrollArea>
+                      </div>
+                      {/* testing begin */}
+                      <div className="mt-6 space-y-1">
+                        <h2 className="text-2xl font-semibold tracking-tight">
+                          Made for You
+                        </h2>
+                        <p className="text-sm text-muted-foreground">
+                          Your personal playlists. Updated daily.
+                        </p>
+                      </div>
+                      <Separator className="my-4" />
+                      <div className="relative">
+                        <ScrollArea>
+                          <div className="flex space-x-4 pb-4">
+                            {madeForYouAlbums.map((album) => (
+                              <AlbumArtwork
+                                key={album.name}
+                                album={album}
+                                className="w-[150px]"
+                                aspectRatio="square"
+                                width={150}
+                                height={150}
+                              />
+                            ))}
+                          </div>
+                          <ScrollBar orientation="horizontal" />
+                        </ScrollArea>
+                      </div>
+                      {/* testing end */}
+                    </TabsContent>
+                    <TabsContent
+                      value="podcasts"
+                      className="h-full flex-col border-none p-0 data-[state=active]:flex"
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="space-y-1">
+                          <h2 className="text-2xl font-semibold tracking-tight">
+                            New Episodes
+                          </h2>
+                          <p className="text-sm text-muted-foreground">
+                            Your favorite podcasts. Updated daily.
+                          </p>
+                        </div>
+                      </div>
+                      <Separator className="my-4" />
+                      <PodcastEmptyPlaceholder />
                     </TabsContent>
                   </Tabs>
                 </div>
@@ -87,6 +160,8 @@ export default function IndexPage() {
             </div>
           </div>
         </div>
+        {/* player bar */}
+        <div className="bg-slate-900 p-[10px] w-[100vw] h-[70px] fixed z-20  bottom-0 left-0"></div>
       </div>
     </>
   );

@@ -79,3 +79,31 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari, and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge, and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* Responsive styles for hiding scrollbar */
+  @media screen and (max-width: 768px) {
+    .sm\\:no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sm\\:no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  }
+
+  /* Add more responsive styles for other breakpoints as needed */
+  /* @media screen and (max-width: ...) {} */
+}

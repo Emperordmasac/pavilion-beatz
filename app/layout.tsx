@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Inter as FontSans } from "next/font/google";
 import localFont from "next/font/local";
 
 import "@/styles/globals.css";
@@ -32,7 +32,7 @@ export const metadata = {
   manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
-const inter = Inter({
+const fontsans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -52,8 +52,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          inter.variable,
+          "min-h-screen bg-background font-sans antialiased no-scrollbar",
+          fontsans.variable,
           fontHeading.variable
         )}
       >
