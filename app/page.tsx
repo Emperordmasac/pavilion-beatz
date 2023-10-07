@@ -13,6 +13,8 @@ import { PodcastEmptyPlaceholder } from "@/components/podcast";
 import { Sidebar } from "@/components/sidebar";
 import { listenNowAlbums, madeForYouAlbums } from "@/mock-data/albums";
 import { playlists } from "@/mock-data/playlists";
+import { MusicPlayer } from "@/components/music-player";
+import { Flex, Box } from "@chakra-ui/layout";
 
 export const metadata: Metadata = {
   title: "Pavilion Beatz",
@@ -161,7 +163,13 @@ export default function IndexPage() {
           </div>
         </div>
         {/* player bar */}
-        <div className="bg-slate-900 p-[10px] w-[100vw] h-[70px] fixed z-20  bottom-0 left-0"></div>
+        <div className="bg-slate-900 p-[10px] w-[100vw] h-[80px] fixed z-20  bottom-0 left-0">
+          <div className="flex justify-center items-center">
+            <div className="w-[40%]">
+              <MusicPlayer />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
